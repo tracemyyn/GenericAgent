@@ -155,9 +155,18 @@ python3 agentmain.py
 Agent 启动后，只需要一句话，它就会自己搞定所有依赖：
 
 ```
-请查看你的代码，安装所有用得上的 python 依赖
+请查看你的代码，安装所有用得上的 python
 ```
 
-Agent 会自己读代码、找出需要的包、全部装好。
+---
 
-> ⚠️ 如果遇到网络问题导致 Agent 无法调用
+## 5. 常见问题
+
+**Q：运行后提示 `ModuleNotFoundError`？**
+先完成第 4 步让 Agent 自动安装依赖，或手动执行 `pip3 install -r requirements.txt`（如果项目提供了该文件）。
+
+**Q：API 调用报 `401 Unauthorized`？**
+检查 `mykey.py` 中的 `apikey` 是否填写正确，注意不要有多余的空格。
+
+**Q：Mac 上 `python3` 命令找不到？**
+确认 Homebrew 安装完成后，重新打开一个终端窗口再试。
