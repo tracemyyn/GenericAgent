@@ -23,6 +23,8 @@ Every time GenericAgent solves a new task, it automatically crystallizes the exe
 
 > **📝 Personal Note** — I'm using this fork primarily to experiment with Gemini model integration and to track how the skill tree evolves over time on my own tasks. Will update this README with my findings.
 
+> **🔧 Fork Notes** — Primary model in use: `gemini-1.5-pro`. Skill tree snapshots will be periodically committed to the `skill-snapshots/` branch for reference.
+
 ## 📋 Core Features
 - **Self-Evolving**: Automatically crystallizes each task into an skill. Capabilities grow with every use, forming your personal skill tree.
 - **Minimal Architecture**: ~3K lines of core code. Agent Loop is ~100 lines. No complex dependencies, zero deployment overhead.
@@ -36,10 +38,5 @@ Every time GenericAgent solves a new task, it automatically crystallizes the exe
 This is what fundamentally distinguishes GenericAgent from every other agent framework.
 
 ```
-[New Task] --> [Autonomous Exploration] (install deps, write scripts, debug & verify) -->
-[Crystallize Execution Path into skill] --> [Write to Memory Layer] --> [Direct Recall on Next Similar Task]
-```
-
-| What you say | What the agent does the first time | Every time after |
-
+[New Task] --> [Autonomous Exploration] (install deps, write scripts,
 ```
