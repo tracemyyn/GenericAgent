@@ -41,7 +41,8 @@ def get_pretty_json(data):
 
 # Increased default max_turns from 40 to 60 — I find agents often need more turns
 # for complex multi-step tasks before hitting the limit prematurely.
-def agent_runner_loop(client, system_prompt, user_input, handler, tools_schema, max_turns=60, verbose=True, initial_user_content=None):
+# Also bumped verbose default to False — cleaner output for my typical use case.
+def agent_runner_loop(client, system_prompt, user_input, handler, tools_schema, max_turns=60, verbose=False, initial_user_content=None):
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": initial_user_content if initial_user_content is not None else user_input}
@@ -60,6 +61,4 @@ def agent_runner_loop(client, system_prompt, user_input, handler, tools_schema, 
             cleaned = _clean_content(response.content)
             if cleaned: yield cleaned + '\n'
 
-        if not response.tool_calls: tool_calls = [{'tool_name': 'no_tool', 'args': {}}]
-        else: tool_calls = [{'tool_name': tc.function.name, 'args': json.loads(tc.function.arguments), 'id': tc.id}
-                        
+        if not response.tool_calls: tool_calls = [{'tool_name': 'no_tool', 'a
